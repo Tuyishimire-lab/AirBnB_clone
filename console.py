@@ -31,11 +31,15 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """Overwrite default behavior to repeat last cmd"""
+        """
+        Overwrite default behavior to repeat last cmd
+        """
         pass
 
     def do_create(self, line):
-        """Create instance specified by user"""
+        """
+        Create instance specified by user
+        """
         if len(line) == 0:
             print("** class name missing **")
         elif line not in HBNBCommand.classes:
@@ -46,7 +50,9 @@ class HBNBCommand(cmd.Cmd):
             print(instance.id)
 
     def do_show(self, line):
-        """Print string representation: name and id"""
+        """
+        Print string name and id
+        """
         if len(line) == 0:
             print("** class name missing **")
             return
@@ -65,7 +71,9 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
 
     def do_destroy(self, line):
-        """Destroy instance specified by user; Save changes to JSON file"""
+        """
+        Destroy instance and Save changes to JSON file
+        """
         if len(line) == 0:
             print("** class name missing **")
             return
@@ -85,7 +93,9 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
 
     def do_all(self, line):
-        """Print all objects or all objects of specified class"""
+        """
+        Print all objects of specified class
+        """
         args = parse(line)
         obj_list = []
         if len(line) == 0:
@@ -101,7 +111,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, line):
-        """Update if given exact object, exact attribute"""
+        """
+        Update if given exact object and attribute
+        """
         args = parse(line)
         if len(args) >= 4:
             key = "{}.{}".format(args[0], args[1])
@@ -125,7 +137,9 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
 
     def do_count(self, line):
-        """Display count of instances specified"""
+        """
+        Display count of instances specified
+        """
         if line in HBNBCommand.classes:
             count = 0
             for key, objs in storage.all().items():
@@ -136,7 +150,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def default(self, line):
-        """Accepts class name followed by arguement"""
+        """
+        Accepts class name followed by arguement
+        """
         args = line.split('.')
         class_arg = args[0]
         if len(args) == 1:
@@ -183,7 +199,9 @@ class HBNBCommand(cmd.Cmd):
 
 
 def parse(line):
-    """Helper method to parse user typed input"""
+    """
+    Helper user to  type input
+    """
     return tuple(line.split())
 
 
