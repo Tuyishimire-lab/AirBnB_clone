@@ -3,25 +3,12 @@ from datetime import datetime
 from uuid import uuid4
 import models
 
-"""
-Module BaseModel
-Parent of all classes
-"""
-
 
 class BaseModel():
-    """Base class for Airbnb clone project
-    Methods:
-        __init__(self, *args, **kwargs)
-        __str__(self)
-        __save(self)
-        __repr__(self)
-        to_dict(self)
-    """
 
     def __init__(self, *args, **kwargs):
         """
-        Initialize attributes: random uuid, dates created/updated
+        Initialize random uuid, dates created/updated
         """
         if kwargs:
             for key, val in kwargs.items():
@@ -56,14 +43,14 @@ class BaseModel():
 
     def save(self):
         """
-        Update instance with updated time & save to serialized file
+        updated time & save to serialized file
         """
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         """
-        Return dic with string formats of times; add class info to dic
+        Return dictionary with string formats of times add class
         """
         dic = {}
         dic["__class__"] = self.__class__.__name__
