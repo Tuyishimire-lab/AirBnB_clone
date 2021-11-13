@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-its creats a python package
-"""
+'''comment'''
 from models.engine.file_storage import FileStorage
 
 storage = FileStorage()
