@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
         elif line not in HBNBCommand.classes:
             print("** class doesn't exist **")
         else:
-            instance = eval(line)()
+            instance = eval(line)
             instance.save()
             print(instance.id)
 
