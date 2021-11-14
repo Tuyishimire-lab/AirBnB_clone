@@ -199,10 +199,8 @@ class HBNBCommand(cmd.Cmd):
 
 
 def parse(line):
-    		"""
-		 helps user input
-		"""
-    		return tuple(line.split())
+    """helps user input"""
+    return tuple(line.split())
 
 
 if __name__ == "__main__":
